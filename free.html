@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en" x-data="{ open: false }" @scroll.window="open = false">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shah Zain - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <style>
+      .gradient-text {
+        background: linear-gradient(to right, #06b6d4, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .scrolling-reviews {
+        animation: scroll-left 20s linear infinite;
+      }
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .animate-marquee {
+        animation: marquee 40s linear infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white font-sans scroll-smooth">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-gray-800 shadow-md">
+      <div
+        class="max-w-6xl mx-auto flex justify-between items-center px-4 py-4"
+      >
+        <h1 class="text-xl font-bold gradient-text">Shah Zain</h1>
+        <nav class="hidden md:flex space-x-6">
+          <a href="#about" class="hover:text-cyan-400">About</a>
+          <a href="#skills" class="hover:text-cyan-400">Skills</a>
+          <a href="#projects" class="hover:text-cyan-400">Projects</a>
+          <a href="#reviews" class="hover:text-cyan-400">Reviews</a>
+          <a href="#contact" class="hover:text-cyan-400">Contact</a>
+        </nav>
+        <!-- Hamburger -->
+        <div class="md:hidden" @click="open = !open">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="white"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </div>
+      </div>
+      <div class="md:hidden" x-show="open" x-transition>
+        <div class="flex flex-col items-center space-y-4 pb-4">
+          <a href="#about" class="hover:text-cyan-400">About</a>
+          <a href="#skills" class="hover:text-cyan-400">Skills</a>
+          <a href="#projects" class="hover:text-cyan-400">Projects</a>
+          <a href="#reviews" class="hover:text-cyan-400">Reviews</a>
+          <a href="#contact" class="hover:text-cyan-400">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <!-- Hero Section -->
+    <section id="hero" class="py-20 px-6 bg-gray-900">
+      <div
+        class="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-center gap-12"
+      >
+        <!-- Text Content -->
+        <div
+          class="flex-1 text-center md:text-left flex flex-col items-center md:items-start justify-center"
+        >
+          <!-- Static Text -->
+          <h1
+            class="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 text-transparent bg-clip-text mb-2"
+          >
+            Hi, I'm Shah Zain
+          </h1>
+
+          <!-- Animated Text -->
+          <h2
+            class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-400 via-red-400 to-fuchsia-500 text-transparent bg-clip-text h-10"
+          >
+            <span class="typed-text"></span>
+          </h2>
+
+          <!-- Paragraph -->
+          <p class="text-gray-300 text-lg leading-relaxed mt-4 max-w-xl">
+            A passionate developer crafting modern web experiences. I focus on
+            building accessible, high-performance, and interactive interfaces
+            with clean code and creative design.
+          </p>
+        </div>
+
+        <!-- Profile Image -->
+        <div class="flex-1 flex justify-center items-center">
+          <img
+            src="pic.jpg"
+            alt="Shah Zain"
+            class="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-cyan-500 object-cover shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-16 px-6 max-w-4xl mx-auto" data-aos="fade-up">
+      <h2 class="text-3xl font-bold mb-4 gradient-text">About Me</h2>
+      <p class="text-gray-300 text-lg">
+        I'm Shah Zain, a self-driven web developer focused on building
+        interactive and user-friendly digital experiences. I enjoy transforming
+        ideas into real-world solutions through code. With a growing passion for
+        learning and exploring the latest in web development, I’ve taken on
+        several projects that showcase my skills in responsive design,
+        animations, and performance optimization. I’m currently mastering
+        JavaScript frameworks, exploring automation, and crafting intuitive user
+        experiences.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20 bg-gray-900" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center gradient-text mb-12">
+          Skills
+        </h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
+          <!-- Skill Item -->
+          <div
+            class="group relative p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:border-cyan-400 hover:shadow-cyan-400/40 transition duration-300 transform hover:-translate-y-2 hover:rotate-1"
+            data-aos="zoom-in"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              class="w-14 h-14 mx-auto"
+              alt="HTML5"
+            />
+            <p class="text-center mt-4 font-semibold">HTML5</p>
+          </div>
+
+          <div
+            class="group relative p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:border-blue-400 hover:shadow-blue-400/40 transition duration-300 transform hover:-translate-y-2 hover:-rotate-1"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              class="w-14 h-14 mx-auto"
+              alt="CSS3"
+            />
+            <p class="text-center mt-4 font-semibold">CSS3</p>
+          </div>
+
+          <div
+            class="group relative p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:border-yellow-400 hover:shadow-yellow-400/40 transition duration-300 transform hover:-translate-y-2 hover:rotate-2"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              class="w-14 h-14 mx-auto"
+              alt="JavaScript"
+            />
+            <p class="text-center mt-4 font-semibold">JavaScript</p>
+          </div>
+
+          <div
+            class="group relative p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:border-cyan-500 hover:shadow-cyan-500/40 transition duration-300 transform hover:-translate-y-2 hover:-rotate-2"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              class="w-14 h-14 mx-auto"
+              alt="React"
+            />
+            <p class="text-center mt-4 font-semibold">React</p>
+          </div>
+
+          <div
+            class="group relative p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:border-teal-400 hover:shadow-teal-400/40 transition duration-300 transform hover:-translate-y-2 hover:rotate-1"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <img
+              src="https://icon.icepanel.io/Technology/svg/Tailwind-CSS.svg"
+              class="w-14 h-14 mx-auto"
+              alt="React"
+            />
+
+            <p class="text-center mt-4 font-semibold">TailwindCSS</p>
+          </div>
+
+          <div
+            class="group relative p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:border-white hover:shadow-white/40 transition duration-300 transform hover:-translate-y-2 hover:-rotate-1"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+              class="w-14 h-14 mx-auto"
+              alt="GitHub"
+            />
+            <p class="text-center mt-4 font-semibold">GitHub</p>
+          </div>
+
+          <div
+            class="group relative p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:border-pink-400 hover:shadow-pink-400/40 transition duration-300 transform hover:-translate-y-2 hover:rotate-2"
+            data-aos="zoom-in"
+            data-aos-delay="600"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              class="w-14 h-14 mx-auto"
+              alt="Node.js"
+            />
+            <p class="text-center mt-4 font-semibold">Node.js</p>
+          </div>
+
+          <div
+            class="group relative p-6 bg-gray-800 rounded-xl shadow-lg border border-gray-700 hover:border-green-400 hover:shadow-green-400/40 transition duration-300 transform hover:-translate-y-2 hover:-rotate-2"
+            data-aos="zoom-in"
+            data-aos-delay="700"
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+              class="w-14 h-14 mx-auto"
+              alt="MongoDB"
+            />
+            <p class="text-center mt-4 font-semibold">MongoDB</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 bg-gray-900 px-4" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold gradient-text text-center mb-12">
+          Projects
+        </h2>
+
+        <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Project Card -->
+          <div
+            class="relative bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-cyan-500 transition-all duration-300 group"
+            data-aos="zoom-in"
+          >
+            <div class="overflow-hidden">
+              <img
+                src="https://tse1.mm.bing.net/th/id/OIP.jAJq0Lj1krA6XGLvIiihKAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Project 1"
+                class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold mb-2">Project One</h3>
+              <p class="text-gray-400 text-sm mb-3">
+                An innovative solution for task automation using modern web
+                technologies.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs text-gray-300 mb-4">
+                <span class="bg-gray-700 px-2 py-1 rounded">React</span>
+                <span class="bg-gray-700 px-2 py-1 rounded">TailwindCSS</span>
+                <span class="bg-gray-700 px-2 py-1 rounded">API</span>
+              </div>
+              <div class="flex justify-between">
+                <a
+                  href="#"
+                  class="bg-cyan-500 hover:bg-cyan-600 text-sm px-4 py-2 rounded flex items-center space-x-2 transition"
+                >
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                    class="w-4 h-4"
+                    alt="GitHub"
+                  />
+
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="#"
+                  class="bg-blue-500 hover:bg-blue-600 text-sm px-4 py-2 rounded flex items-center space-x-2 transition"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 5l7 7-7 7M5 5v14"
+                    />
+                  </svg>
+                  <span>Live Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 2 -->
+          <div
+            class="relative bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300 group"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="overflow-hidden">
+              <img
+                src="https://tse1.mm.bing.net/th/id/OIP.jAJq0Lj1krA6XGLvIiihKAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Project 2"
+                class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold mb-2">Project Two</h3>
+              <p class="text-gray-400 text-sm mb-3">
+                A sleek portfolio template with dynamic animations and
+                responsive design.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs text-gray-300 mb-4">
+                <span class="bg-gray-700 px-2 py-1 rounded">HTML</span>
+                <span class="bg-gray-700 px-2 py-1 rounded">CSS</span>
+                <span class="bg-gray-700 px-2 py-1 rounded">JS</span>
+              </div>
+              <div class="flex justify-between">
+                <a
+                  href="#"
+                  class="bg-cyan-500 hover:bg-cyan-600 text-sm px-4 py-2 rounded flex items-center space-x-2 transition"
+                >
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                    class="w-4 h-4"
+                    alt="GitHub"
+                  />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="#"
+                  class="bg-blue-500 hover:bg-blue-600 text-sm px-4 py-2 rounded flex items-center space-x-2 transition"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 5l7 7-7 7M5 5v14"
+                    />
+                  </svg>
+                  <span>Live Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="relative bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-blue-500 transition-all duration-300 group"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="overflow-hidden">
+              <img
+                src="https://tse1.mm.bing.net/th/id/OIP.jAJq0Lj1krA6XGLvIiihKAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
+                alt="Project 2"
+                class="w-full h-48 object-cover transform group-hover:scale-110 transition duration-500"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-xl font-semibold mb-2">Project Three</h3>
+              <p class="text-gray-400 text-sm mb-3">
+                A sleek portfolio template with dynamic animations and
+                responsive design.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs text-gray-300 mb-4">
+                <span class="bg-gray-700 px-2 py-1 rounded">HTML</span>
+                <span class="bg-gray-700 px-2 py-1 rounded">CSS</span>
+                <span class="bg-gray-700 px-2 py-1 rounded">JS</span>
+              </div>
+              <div class="flex justify-between">
+                <a
+                  href="#"
+                  class="bg-cyan-500 hover:bg-cyan-600 text-sm px-4 py-2 rounded flex items-center space-x-2 transition"
+                >
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                    class="w-4 h-4"
+                    alt="GitHub"
+                  />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="#"
+                  class="bg-blue-500 hover:bg-blue-600 text-sm px-4 py-2 rounded flex items-center space-x-2 transition"
+                >
+                  <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M14 5l7 7-7 7M5 5v14"
+                    />
+                  </svg>
+                  <span>Live Demo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Duplicate and update more projects below as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="py-20 bg-gray-900 overflow-hidden">
+      <h2
+        class="text-4xl font-bold mb-12 text-center gradient-text"
+        data-aos="fade-up"
+      >
+        What People Say
+      </h2>
+
+      <div class="relative w-full overflow-hidden">
+        <div
+          class="flex w-max animate-marquee whitespace-nowrap gap-8 hover:[animation-play-state:paused]"
+        >
+          <!-- Review Card 1 -->
+          <div
+            class="w-80 h-auto bg-gray-800 text-white rounded-xl p-6 shadow-xl flex-shrink-0 transform hover:scale-105 transition duration-300"
+          >
+            <div class="flex flex-col justify-between h-full">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-semibold">Ali Khan</h3>
+                  <span class="text-sm text-gray-400">CEO, Tech Solutions</span>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed text-wrap">
+                  “Shah is a fantastic developer! He delivered our web app
+                  faster than expected with impressive attention to detail.”
+                </p>
+              </div>
+              <div class="flex space-x-1 mt-4">
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-80 h-auto bg-gray-800 text-white rounded-xl p-6 shadow-xl flex-shrink-0 transform hover:scale-105 transition duration-300"
+          >
+            <div class="flex flex-col justify-between h-full">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-semibold">Ali Khan</h3>
+                  <span class="text-sm text-gray-400">CEO, Tech Solutions</span>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed text-wrap">
+                  “Shah is a fantastic developer! He delivered our web app
+                  faster than expected with impressive attention to detail.”
+                </p>
+              </div>
+              <div class="flex space-x-1 mt-4">
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-80 h-auto bg-gray-800 text-white rounded-xl p-6 shadow-xl flex-shrink-0 transform hover:scale-105 transition duration-300"
+          >
+            <div class="flex flex-col justify-between h-full">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-semibold">Ali Khan</h3>
+                  <span class="text-sm text-gray-400">CEO, Tech Solutions</span>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed text-wrap">
+                  “Shah is a fantastic developer! He delivered our web app
+                  faster than expected with impressive attention to detail.”
+                </p>
+              </div>
+              <div class="flex space-x-1 mt-4">
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-80 h-auto bg-gray-800 text-white rounded-xl p-6 shadow-xl flex-shrink-0 transform hover:scale-105 transition duration-300"
+          >
+            <div class="flex flex-col justify-between h-full">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-semibold">Ali Khan</h3>
+                  <span class="text-sm text-gray-400">CEO, Tech Solutions</span>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed text-wrap">
+                  “Shah is a fantastic developer! He delivered our web app
+                  faster than expected with impressive attention to detail.”
+                </p>
+              </div>
+              <div class="flex space-x-1 mt-4">
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+                <span class="text-yellow-400">★</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- (Repeat other duplicates as needed) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Tailwind-compatible custom styles -->
+
+    <!-- Contact -->
+    <section
+      id="contact"
+      class="py-16 px-6 max-w-4xl mx-auto"
+      data-aos="fade-up"
+    >
+      <h2 class="text-3xl font-bold mb-6 gradient-text text-center">
+        Contact Me
+      </h2>
+      <form class="space-y-4">
+        <input
+          type="text"
+          placeholder="Your Name"
+          class="w-full p-3 rounded bg-gray-700 text-white focus:outline-none"
+        />
+        <input
+          type="email"
+          placeholder="Your Email"
+          class="w-full p-3 rounded bg-gray-700 text-white focus:outline-none"
+        />
+        <textarea
+          placeholder="Your Message"
+          rows="5"
+          class="w-full p-3 rounded bg-gray-700 text-white focus:outline-none"
+        ></textarea>
+        <button
+          type="submit"
+          class="bg-cyan-500 px-6 py-2 rounded hover:bg-cyan-600 transition"
+        >
+          Send Message
+        </button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-center py-6 text-gray-400">
+      &copy; 2025 Shah Zain. Built with ❤️ using TailwindCSS, AOS, Typed.js.
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      AOS.init();
+      const typed = new Typed(".typed-text", {
+        strings: [
+          "Frontend Developer",
+          "React Enthusiast",
+          "UI/UX Designer",
+          "Open Source Contributor",
+        ],
+        typeSpeed: 60,
+        backSpeed: 40,
+        loop: true,
+      });
+
+      // Clone template into both slots to make seamless loop
+      const template = document.getElementById("review-template").content;
+      document
+        .getElementById("inject-reviews-1")
+        .appendChild(template.cloneNode(true));
+      document
+        .getElementById("inject-reviews-2")
+        .appendChild(template.cloneNode(true));
+    </script>
+  </body>
+</html>
